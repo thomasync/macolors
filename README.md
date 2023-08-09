@@ -27,6 +27,14 @@ Macolors is a Python utility that enhances the output of command-line programs b
 
 ## Installation
 
+**Note**: Macolors is still in development, so it is not yet available on PyPI or Homebrew. You can install it manually by cloning the repository and running the setup script.
+
+~~`$ pip install macolors`~~
+
+~~`$ brew install macolors`~~
+
+<br>
+
 ```
 $ git clone https://github.com/thomasync/macolors
 ```
