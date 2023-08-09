@@ -64,6 +64,9 @@ class Macolors:
         elif self.arguments.json:
             self.input.set_json_scheme(self.arguments.json)
 
+        if self.arguments.force_auto:
+            self.input.force_auto = self.arguments.force_auto
+
     def __get_parser(self):
         parser = argparse.ArgumentParser()
 

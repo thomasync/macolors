@@ -2,18 +2,34 @@
 logs:
     match: ^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\s(INFO|DEBUG|ERROR|WARNING|CRITICAL|FATAL|NOTICE|ALERT|EMERGENCY|VERBOSE|TRACE|WARN)\s.*$
     schemes:
-        - { match: '.*\s(WARNING|WARN)\s.*', style: yellow3 bold }
-        - { match: '.*\s(ERROR|CRITICAL|FATAL|ALERT|EMERGENCY)\s.*', style: red3 bold }
-        - { match: '.*\sINFO\s.*', style: cyan3 italic }
-        - { match: '.*\s(DEBUG|VERBOSE|TRACE)\s.*', style: magenta3 italic }
+        - { match: '.*\s(?:WARNING|WARN)\s.*', style: yellow3 bold }
+        - { match: '.*\s(?:ERROR|CRITICAL|FATAL|ALERT|EMERGENCY)\s.*', style: red3 bold }
+        - { match: '.*\sINFO\s.*', style: blue_violet italic }
+        - { match: '.*\s(?:DEBUG|VERBOSE|TRACE)\s.*', style: magenta3 italic }
+        - { match: '\[(.*?)\]', style: bold }
+
+        # JSON
+        - { match: '(".*"):\s(?:\[|\{)', style: blue_violet bold, description: property name (array/object) }
+        - { match: '".*": (".*")', style: medium_purple3 bold, description: string }
+        - { match: '".*": (true)', style: green3 bold, description: bool true }
+        - { match: '".*": (false)', style: red3 bold, description: bool false }
+        - { match: '".*": (\d+)', style: yellow3 bold, description: number }
 
 logs2:
     match: ^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\s(INFO|DEBUG|ERROR|WARNING|CRITICAL|FATAL|NOTICE|ALERT|EMERGENCY|VERBOSE|TRACE|WARN)\s.*$
     schemes:
-        - { match: '.*\s(WARNING|WARN)\s.*', style: yellow bold }
-        - { match: '.*\s(ERROR|CRITICAL|FATAL|ALERT|EMERGENCY)\s.*', style: red bold }
+        - { match: '.*\s(?:WARNING|WARN)\s.*', style: yellow bold }
+        - { match: '.*\s(?:ERROR|CRITICAL|FATAL|ALERT|EMERGENCY)\s.*', style: red bold }
         - { match: '.*\sINFO\s.*', style: cyan italic }
-        - { match: '.*\s(DEBUG|VERBOSE|TRACE)\s.*', style: magenta italic }
+        - { match: '.*\s(?:DEBUG|VERBOSE|TRACE)\s.*', style: magenta italic }
+        - { match: '\[(.*?)\]', style: bold }
+
+        # JSON
+        - { match: '(".*"):\s(?:\[|\{)', style: purple bold, description: property name (array/object) }
+        - { match: '".*": (".*")', style: medium_purple bold, description: string }
+        - { match: '".*": (true)', style: green bold, description: bool true }
+        - { match: '".*": (false)', style: red bold, description: bool false }
+        - { match: '".*": (\d+)', style: yellow bold, description: number }
 
 logs3:
     match: ^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\s(INFO|DEBUG|ERROR|WARNING|CRITICAL|FATAL|NOTICE|ALERT|EMERGENCY|VERBOSE|TRACE|WARN)\s.*$
@@ -24,3 +40,10 @@ logs3:
         - { match: '\sINFO\s', style: cyan3 italic }
         - { match: '\s(DEBUG|VERBOSE|TRACE)\s', style: magenta3 italic }
         - { match: '\[(.*?)\]', style: steel_blue1 bold }
+
+        # JSON
+        - { match: '(".*"):\s(?:\[|\{)', style: purple4 bold, description: property name (array/object) }
+        - { match: '".*": (".*")', style: medium_purple3 bold, description: string }
+        - { match: '".*": (true)', style: green3 bold, description: bool true }
+        - { match: '".*": (false)', style: red3 bold, description: bool false }
+        - { match: '".*": (\d+)', style: yellow3 bold, description: number }
