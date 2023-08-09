@@ -23,14 +23,18 @@ class Macolors:
     def get_from_command(self, command=None):
         command = self.__verify_command(command)
 
-        process = subprocess.Popen(
-            command,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            stdin=subprocess.DEVNULL,
-            encoding="utf-8",
-            errors="replace",
-        )
+        try:
+            process = subprocess.Popen(
+                command,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                stdin=subprocess.DEVNULL,
+                encoding="utf-8",
+                errors="replace",
+            )
+        except Exception as e:
+            print("Unable to execute command: " + str(e))
+            return
 
         while True:
             output = process.stdout.readline()
@@ -43,7 +47,10 @@ class Macolors:
 
     def get_arguments(self, arguments, define_arguments=True):
         args, unknown = self.__parser.parse_known_args(arguments[1:])
-        args.command = args.command + unknown
+
+        if len(unknown) > 0 and not unknown[0].startswith("-"):
+            args.command = args.command + unknown
+
         self.arguments = args
 
         if define_arguments:

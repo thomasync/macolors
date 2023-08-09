@@ -6,7 +6,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="macolors",
-    version="0.0.2",
+    version="0.0.3",
     author="thomasync",
     author_email="macolors-github@thomascauquil.fr",
     description="Add colors to terminal command outputs",
