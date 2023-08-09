@@ -1,0 +1,16 @@
+2023-08-07 18:57:16.1131 INFO    [NESTFACTORY] Starting Nest application...
+2023-08-07 18:57:16.1201 INFO    [INSTANCELOADER] HttpModule dependencies initialized
+2023-08-07 18:57:16.1201 INFO    [INSTANCELOADER] UtilsModule dependencies initialized
+2023-08-07 18:57:16.1211 INFO    [INSTANCELOADER] ExporterModule dependencies initialized
+2023-08-07 18:57:16.1211 INFO    [INSTANCELOADER] OptionsModule dependencies initialized
+2023-08-07 18:57:16.1211 INFO    [INSTANCELOADER] ApiModule dependencies initialized
+2023-08-07 18:57:16.1211 INFO    [INSTANCELOADER] CommonModule dependencies initialized
+2023-08-07 18:57:16.1211 INFO    [INSTANCELOADER] CliModule dependencies initialized
+2023-08-07 18:57:16.1291 VERBOSE [CLISERVICE] Run module init
+2023-08-07 18:57:16.1512 INFO    [NESTAPPLICATION] Nest application successfully started
+2023-08-07 18:57:16.7768 VERBOSE [CLISERVICE] Run debug mode
+2023-08-07 18:57:16.7768 WARN 	 [CLISERVICE] Run debug mode
+2023-08-07 18:57:16.7768 WARNING [CLISERVICE] Run debug mode
+2023-08-07 18:57:16.7768 ERROR   [CLISERVICE] Run debug mode
+2023-08-07 18:57:16.7768 DEBUG   [CLISERVICE] Run debug mode
+2023-08-07 18:57:16.7768 DEBUG   Run debug mode

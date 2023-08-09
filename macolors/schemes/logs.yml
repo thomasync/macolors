@@ -1,0 +1,26 @@
+---
+logs:
+    match: ^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\s(INFO|DEBUG|ERROR|WARNING|CRITICAL|FATAL|NOTICE|ALERT|EMERGENCY|VERBOSE|TRACE|WARN)\s.*$
+    schemes:
+        - { match: '.*\s(WARNING|WARN)\s.*', style: yellow3 bold }
+        - { match: '.*\s(ERROR|CRITICAL|FATAL|ALERT|EMERGENCY)\s.*', style: red3 bold }
+        - { match: '.*\sINFO\s.*', style: cyan3 italic }
+        - { match: '.*\s(DEBUG|VERBOSE|TRACE)\s.*', style: magenta3 italic }
+
+logs2:
+    match: ^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\s(INFO|DEBUG|ERROR|WARNING|CRITICAL|FATAL|NOTICE|ALERT|EMERGENCY|VERBOSE|TRACE|WARN)\s.*$
+    schemes:
+        - { match: '.*\s(WARNING|WARN)\s.*', style: yellow bold }
+        - { match: '.*\s(ERROR|CRITICAL|FATAL|ALERT|EMERGENCY)\s.*', style: red bold }
+        - { match: '.*\sINFO\s.*', style: cyan italic }
+        - { match: '.*\s(DEBUG|VERBOSE|TRACE)\s.*', style: magenta italic }
+
+logs3:
+    match: ^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\s(INFO|DEBUG|ERROR|WARNING|CRITICAL|FATAL|NOTICE|ALERT|EMERGENCY|VERBOSE|TRACE|WARN)\s.*$
+    schemes:
+        - { description: 'Date and time', match: '^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+', style: bright_black italic }
+        - { match: '\s(WARNING|WARN)\s', style: yellow3 italic }
+        - { match: '\s(ERROR|CRITICAL|FATAL|ALERT|EMERGENCY)\s', style: red3 italic }
+        - { match: '\sINFO\s', style: cyan3 italic }
+        - { match: '\s(DEBUG|VERBOSE|TRACE)\s', style: magenta3 italic }
+        - { match: '\[(.*?)\]', style: steel_blue1 bold }

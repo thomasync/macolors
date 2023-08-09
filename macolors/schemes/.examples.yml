@@ -1,0 +1,86 @@
+# ---
+# name_of_scheme:
+#     match: REGEX [OPTIONAL]
+#     style: STYLE [OPTIONAL]
+#     min: INTEGER [OPTIONAL]
+#     max: INTEGER [OPTIONAL]
+#     line: INTEGER [OPTIONAL]
+#     schemes:
+#         - { match: REGEX,
+#             style: STYLE,
+#             odd: 'BOOLEAN [OPTIONAL]',
+#             min: 'INTEGER [OPTIONAL]',
+#             max: 'INTEGER [OPTIONAL]',
+#             description: 'STRING [OPTIONAL]'
+#           }
+
+#         - { match: REGEX,
+#             style: STYLE,
+#             odd: 'BOOLEAN [OPTIONAL]',
+#             min: 'INTEGER [OPTIONAL]',
+#             max: 'INTEGER [OPTIONAL]',
+#             description: 'STRING [OPTIONAL]'
+#           }
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Example 1
+# Input:                            Output :
+# NOT COMMAND 1                     NOT COMMAND 1
+# NOT COMMAND 2                     NOT COMMAND 2
+# NOT COMMAND 3                     NOT COMMAND 3
+
+# COMMAND 1                         <red>COMMAND 1</red>
+# COMMAND 2                         <yellow>COMMAND 2</yellow>
+# COMMAND 3                         <red>COMMAND 3</red>
+# COMMAND 4                         <yellow>COMMAND 4</yellow>
+
+# OTHER 1                           <green_yellow>OTHER</green_yellow> <blue>1</blue>
+# OTHER 2                           <green_yellow>OTHER</green_yellow> <violet>2</violet>
+# OTHER 3                           <green_yellow>OTHER</green_yellow> <violet>3</violet>
+# ---
+# example:
+#     # match: [] WE DISABLE match, so it only be used with --scheme option
+#     style: blue
+#     min: 5
+#     schemes:
+#         - { match: .*, max: 8, style: red, odd: true }
+#         - { match: .*, max: 8, style: yellow, odd: false }
+#         - { match: '[^\d]+', min: 10, style: green_yellow }
+#         - { match: \d+, min: 11, style: violet }
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Example 2
+# Input:                            Output :
+# COMMAND 1                         COMMAND 1
+# COMMAND 2                         <redCOM</red><yellow underline>MAND</yellow underline> <blue bold>2</blue bold>
+# COMMAND 3                         COMMAND 3
+# ---
+# example:
+#     # match: [] WE DISABLE match, so it only be used with --scheme option
+#     line: 2
+#     schemes:
+#         - { match: '^.{3}', style: red }
+#         - { match: '^.{3}(.*?)\s\d', style: yellow underline }
+#         - { match: '^.{3}.*?(\d)$', style: blue bold }
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Example 3
+# Input:                            Output :
+# MY_COMMANDS                       <bold on violet>MY_COMMANDS</bold on violet>
+# COMMAND_1 description             <red>COMMAND_1</red> <red dim>description</red dim>
+# COMMAND_2 description             <blue>COMMAND_2</blue> <blue dim>description</blue dim>
+# COMMAND_3 description             <yellow>COMMAND_3</yellow> <yellow dim>description</yellow dim>
+# ---
+# example:
+#     match: ^MY_COMMANDS
+#     schemes:
+#         - { match: 'MY_COMMANDS', style: bold on violet }
+
+#         - { match: 'COMMAND_1', style: red }
+#         - { match: 'COMMAND_1\s(.*)', style: red dim }
+
+#         - { match: 'COMMAND_2', style: blue }
+#         - { match: 'COMMAND_2\s(.*)', style: blue dim }
+
+#         - { match: 'COMMAND_3', style: yellow }
+#         - { match: 'COMMAND_3\s(.*)', style: yellow dim }

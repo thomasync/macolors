@@ -1,0 +1,5 @@
+---
+extra:
+    schemes:
+        - { match: '^(\\s+|)(.*)', odd: true, style: yellow3 bold }
+        - { match: '^(\\s+|)(.*)', odd: false, style: red3 bold }
