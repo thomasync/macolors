@@ -113,7 +113,7 @@ name_of_scheme:
           }
 ```
 
-Examples of color schemes can be found in the [schemes](schemes) directory.
+Examples of color schemes can be found in the [schemes](macolors/schemes) directory.
 
 ### JSON
 
@@ -121,10 +121,10 @@ You can also create your own color scheme by specifying a json object with the `
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
 ---
 
 **Note**: Macolors is designed to work with various command-line utilities. However, some commands may not play well with colorization or may require additional configuration.
 
-Feel free to contribute, report issues, or suggest improvements by opening an [issue](https://github.com/yourusername/macolors/issues) or creating a [pull request](https://github.com/yourusername/macolors/pulls).
+Feel free to contribute, report issues, or suggest improvements by opening an [issue](https://github.com/thomasync/macolors/issues) or creating a [pull request](https://github.com/thomasync/macolors/pulls).
