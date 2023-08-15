@@ -8,9 +8,10 @@ from macolors.input import Input
 class Macolors:
     def __init__(self):
         self.input = Input()
-        self.__parser = self.__get_parser()
-
+        self.filter = None
         self.arguments = None
+
+        self.__parser = self.__get_parser()
 
     def get_from_stdin(self, stdin):
         if not stdin or stdin.isatty():
@@ -18,6 +19,9 @@ class Macolors:
             return
 
         for line in stdin:
+            if self.filter and self.filter not in line:
+                continue
+
             self.input.format(line)
 
     def get_from_command(self, command=None):
@@ -43,6 +47,8 @@ class Macolors:
                 break
 
             if output:
+                if self.filter and self.filter not in output:
+                    continue
                 self.input.format(output)
 
     def get_arguments(self, arguments, define_arguments=True):
@@ -66,6 +72,9 @@ class Macolors:
 
         if self.arguments.force_auto:
             self.input.force_auto = self.arguments.force_auto
+
+        if self.arguments.filter:
+            self.filter = self.arguments.filter
 
     def __get_parser(self):
         parser = argparse.ArgumentParser()
@@ -97,6 +106,12 @@ class Macolors:
         group.add_argument(
             "--json",
             help="Allow to use json format to define scheme",
+        )
+
+        parser.add_argument(
+            "-f",
+            "--filter",
+            help="filter to apply to the output",
         )
 
         stream = StringIO()

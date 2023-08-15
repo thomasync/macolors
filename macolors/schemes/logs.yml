@@ -9,11 +9,14 @@ logs:
         - { match: '\[(.*?)\]', style: bold }
 
         # JSON
-        - { match: '(".*"):\s(?:\[|\{)', style: blue_violet bold, description: property name (array/object) }
         - { match: '".*": (".*")', style: medium_purple3 bold, description: string }
         - { match: '".*": (true)', style: green3 bold, description: bool true }
         - { match: '".*": (false)', style: red3 bold, description: bool false }
-        - { match: '".*": (\d+)', style: yellow3 bold, description: number }
+        - { match: '".*": ([0-9.]+)', style: yellow3 bold, description: number }
+
+        # ERRORS
+        - { match: '(Error:.*?)\\n', style: red3 bold }
+        - { match: '\(.*?[0-9]{1,5}:[0-9]{1,5}\)', style: magenta3 }
 
 logs2:
     match: ^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\s(INFO|DEBUG|ERROR|WARNING|CRITICAL|FATAL|NOTICE|ALERT|EMERGENCY|VERBOSE|TRACE|WARN)\s.*$
@@ -25,11 +28,10 @@ logs2:
         - { match: '\[(.*?)\]', style: bold }
 
         # JSON
-        - { match: '(".*"):\s(?:\[|\{)', style: purple bold, description: property name (array/object) }
         - { match: '".*": (".*")', style: medium_purple bold, description: string }
         - { match: '".*": (true)', style: green bold, description: bool true }
         - { match: '".*": (false)', style: red bold, description: bool false }
-        - { match: '".*": (\d+)', style: yellow bold, description: number }
+        - { match: '".*": ([0-9.]+)', style: yellow bold, description: number }
 
 logs3:
     match: ^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\s(INFO|DEBUG|ERROR|WARNING|CRITICAL|FATAL|NOTICE|ALERT|EMERGENCY|VERBOSE|TRACE|WARN)\s.*$
@@ -42,8 +44,7 @@ logs3:
         - { match: '\[(.*?)\]', style: steel_blue1 bold }
 
         # JSON
-        - { match: '(".*"):\s(?:\[|\{)', style: purple4 bold, description: property name (array/object) }
         - { match: '".*": (".*")', style: medium_purple3 bold, description: string }
         - { match: '".*": (true)', style: green3 bold, description: bool true }
         - { match: '".*": (false)', style: red3 bold, description: bool false }
-        - { match: '".*": (\d+)', style: yellow3 bold, description: number }
+        - { match: '".*": ([0-9.]+)', style: yellow3 bold, description: number }
